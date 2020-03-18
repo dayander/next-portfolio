@@ -5,11 +5,36 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "yarn lint:eslint",
+    "lint:eslint": "eslint --cache --cache-location=.cache/eslint './src/**/*.{js,jsx,ts,tsx}'",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "next": "9.2.2",
     "react": "16.13.0",
     "react-dom": "16.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.1",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn precommit"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --cache --cache-location=.cache/eslint",
+      "prettier --write"
+    ],
+    "src/**/*.json": [
+      "prettier --write"
+    ]
   }
 }
