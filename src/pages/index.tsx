@@ -1,23 +1,18 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import React from 'react';
 
 const Home = () => (
   <div className="container">
     <Head>
       <title>Create Next App</title>
-      <link rel="icon" href="/favicon.ico" />
+      <link href="/favicon.ico" rel="icon" />
     </Head>
-    <header>
-      hey
-    </header>
+    <header>hey</header>
 
-    <main>
-      main
-    </main>
+    <main>main</main>
 
-    <footer>
-      footer
-    </footer>
+    <footer>footer</footer>
   </div>
-)
+);
 
-export default Home
+export default Home;

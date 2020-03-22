@@ -294,6 +294,8 @@ module.exports = {
     'prefer-object-spread': 'error', // https://eslint.org/docs/rules/prefer-object-spread
     'prefer-rest-params': 'error', // https://eslint.org/docs/rules/prefer-rest-params
     'prefer-spread': 'error', // https://eslint.org/docs/rules/prefer-spread
+    semi: ['error', 'always'],
+    quotes: ['error', 'single'],
     radix: 'error',
     strict: ['error', 'global'],
 
