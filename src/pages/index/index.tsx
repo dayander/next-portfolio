@@ -12,6 +12,10 @@ const Home = () => (
       kjsfjnsdfj hksdjkhdsjkfsdjkhsdf hjksdhjkashjkdfkhjsadhj ksfdjkhfdsjhksdfhjkfds
       hjkasd;asdjkasdjaslk jdjkasdlkalksd jasljkdalskdjkasljdk
     </p>
+    <p>
+      kjsfjnsdfj hksdjkhdsjkfsdjkhsdf hjksdhjkashjkdfkhjsadhj ksfdjkhfdsjhksdfhjkfds
+      hjkasd;asdjkasdjaslk jdjkasdlkalksd jasljkdalskdjkasljdk
+    </p>
     <main>main</main>
 
     <footer>footer</footer>
