@@ -11,11 +11,10 @@ My Portfolio is a place for me to show off the work I've done and a place for me
 - React
 - Express
 - GraphQL
+- MongoDB
 
 ## Technologies I'm Implementing
 
 - Docker
-
-- MongoDB
 - Jest
 - Axe

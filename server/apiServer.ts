@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
 import mongoose from 'mongoose';
-import server from './graphQL/demo';
+import server from './graphQL';
 
 require('dotenv').config();
 
