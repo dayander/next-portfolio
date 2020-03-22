@@ -1,7 +1,8 @@
 // @ts-ignore
-import next from 'next';
+const next = require('next');
+//import next from 'next';
 // @ts-ignore
-import express, {Request, Response} from 'express';
+const express = require('express');
 
 const httpProxy = require('http-proxy');
 
@@ -13,6 +14,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const clientApp = next( {dev} );
 const handleRender = clientApp.getRequestHandler();
 
+// @ts-ignore
 const API_PORT = process.env.API_PORT ?? 3010;
 
 //const API_PORT = process.env.API_PORT ?? 3010;
@@ -24,7 +26,7 @@ const apiProxy = httpProxy.createProxyServer({
 clientApp.prepare().then(() => {
   const server = express();
 
-  server.use('/api', (req: any, res: any) => {
+  server.use('/api', (req: Request, res: Response) => {
     apiProxy.web(req, res);
   });
 
@@ -32,7 +34,8 @@ clientApp.prepare().then(() => {
 
   server.listen(PORT, () => {
     // eslint-disable-next-line no-console
-    console.log(`> Ready on http://localhost:${PORT}`);
+    console.log(`> \`🚀 Ready on http://localhost:${PORT}`);
   });
 });
-
+//@ts-ignore
+export {};

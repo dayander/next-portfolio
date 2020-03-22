@@ -9,11 +9,13 @@ My Portfolio is a place for me to show off the work I've done and a place for me
 - Typescript
 - NextJS
 - React
+- Express
+- GraphQL
 
 ## Technologies I'm Implementing
 
-- Express
-- GraphQL
+- Docker
+
 - MongoDB
 - Jest
 - Axe
