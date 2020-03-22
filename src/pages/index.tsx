@@ -8,7 +8,7 @@ const Home = () => (
       <link href="/favicon.ico" rel="icon" />
     </Head>
     <header>hey</header>
-
+    <p>kjsfjnsdfjhksdjkhdsjkfsdjkhsdfhjksdhjkashjkdfkhjsadhjksfdjkhfdsjhksdfhjkfdshjk</p>
     <main>main</main>
 
     <footer>footer</footer>
