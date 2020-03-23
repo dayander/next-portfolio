@@ -1,8 +1,7 @@
-import { mergeTypes } from 'merge-graphql-schemas';
-import Project from './project';
-import ProjectList from './projectList';
+import { mergeTypes, fileLoader } from 'merge-graphql-schemas';
+import path from 'path';
 
-const typesArray = [ProjectList, Project];
+const typesArray = fileLoader(path.join(__dirname, './**/*'), { recursive: true })
 
 export default mergeTypes(typesArray, { all: true });
 
