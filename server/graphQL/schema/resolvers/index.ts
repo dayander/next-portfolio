@@ -1,14 +1,10 @@
-const resolvers = {
-  Query: {
-    project() {
-      return {
-        projectName: 'dayander@msu.edu',
-      };
-    }
-  }
-};
+import path from 'path';
+import { fileLoader, mergeResolvers } from 'merge-graphql-schemas';
 
-export default resolvers;
+const resolversArray = fileLoader(path.join(__dirname, './*'));
+
+export default mergeResolvers(resolversArray);
+
 
 
 //from tutorial
