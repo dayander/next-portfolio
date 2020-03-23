@@ -1,10 +1,8 @@
 const resolvers = {
   Query: {
-    me() {
+    project() {
       return {
-        email: 'dayander@msu.edu',
-        avatar: 'yoda.png',
-        friends: []
+        projectName: 'dayander@msu.edu',
       };
     }
   }

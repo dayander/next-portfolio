@@ -1,6 +1,6 @@
 import {gql} from 'apollo-server-express';
 
-const projectTypeDef = gql`
+export default gql`
     type Project {
         projectName: String,
         companyName: String,
@@ -25,4 +25,5 @@ const projectTypeDef = gql`
         project: Project
     }
 `;
+
 

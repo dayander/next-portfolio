@@ -12,3 +12,4 @@ const projectListTypeDef = gql`
     }
 `;
 
+export default projectListTypeDef;

@@ -3,21 +3,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
-const JOBS_QUERY = gql`
-  query {
-    jobs {
-      id
-      title
-      applyUrl
-      company {
-        name
-      }
-    }
-  }
-`;
-
 const Home = () => {
-  console.log('place holder');
   return (
     <div className="container">
       <Head>
