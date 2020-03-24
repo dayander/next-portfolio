@@ -14,7 +14,7 @@ mongoose.connect(
   { useNewUrlParser: true })
   .then(() => {
   // eslint-disable-next-line no-console
-  console.log('Connected to Database');
+  console.log('> ⚾️ Connected to Database');
 })
   .catch((error: Error) => {
     // eslint-disable-next-line no-console

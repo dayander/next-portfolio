@@ -1,6 +1,13 @@
+interface ProjectInput {
+  input: {
+    projectName?: string;
+    address?: string;
+  }
+}
+
 export default {
   Query: {
-    project: (_: any, {input}: any, ctx: any) => {
+    project: (_: any, {input}: ProjectInput, ctx: any) => {
       if(input.address){
         return ctx.models.Project.findOne({'address': input.address });
       }

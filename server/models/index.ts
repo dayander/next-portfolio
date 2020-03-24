@@ -1,10 +1,10 @@
-import Comment from './Comment';
+import Contact from './Contact';
 import Post from './Post';
 import Project from './Project';
 import Resume from './Resume';
 
 export const models = {
-  Comment,
+  Contact,
   Project,
   Post,
   Resume,

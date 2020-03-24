@@ -2,6 +2,7 @@ import {gql} from 'apollo-server-express';
 
 export default gql`
     type Project {
+        _id: ID
         projectName: String,
         companyName: String,
         projectHeading: String,

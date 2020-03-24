@@ -6,6 +6,7 @@ const postSchema = new Schema({
   content:String,
   slug: String,
   date: { type: Date, default: Date.now },
+  type: String,
 });
 
 export default model('Post', postSchema);
