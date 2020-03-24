@@ -31,9 +31,6 @@ export default {
     postList: (__: any, ___: any, ctx: any) => ctx.models.Post.find(),
   },
   Mutation: {
-    createPost:(_: any, {input}: PostCreateResolversInput, ctx: any) => {
-      return ctx.models.Post.create(input);
-
-    }
+    createPost:(_: any, {input}: PostCreateResolversInput, ctx: any) => ctx.models.Post.create(input)
   }
 };
