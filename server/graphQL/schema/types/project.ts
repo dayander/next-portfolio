@@ -20,9 +20,14 @@ export default gql`
         imgPath: String
         altText: String
     }
+    
+    input ProjectInput {
+        projectName: String
+        address: String
+    }
 
     type Query {
-        project: Project
+        project(input: ProjectInput!): Project
     }
 `;
 
