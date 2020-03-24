@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": " NODE_ENV=development nodemon --exec ts-node --project tsconfig.server.json ./server/index.ts & nodemon --exec ts-node --project tsconfig.server.json ./server/apiServer.ts",
+    "dev": " NODE_ENV=development nodemon --exec ts-node --project tsconfig.server.json ./server/index.ts & nodemon  --exec ts-node --project tsconfig.server.json ./server/apiServer.ts",
     "dev-server": "nodemon --exec ts-node ./server/apiServer.ts",
     "dev-server:watch": "nodemon",
     "build": "next build",

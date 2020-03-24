@@ -3,7 +3,16 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
 
+const Query = gql`
+  query {
+    project {
+      projectName
+    }
+  }
+`;
+
 const Home = () => {
+  console.log(useQuery(Query).data);
   return (
     <div className="container">
       <Head>

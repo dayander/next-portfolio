@@ -21,6 +21,9 @@ mongoose.connect(
     console.log(error);
   });
 
+export const db = mongoose.connection;
+
+
 server.applyMiddleware({ app:APIServer });
 
 APIServer.get('/', (req: Request, res: Response) => res.send('api server working'));

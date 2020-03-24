@@ -1,14 +1,11 @@
 import {gql} from 'apollo-server-express';
 
-const projectListTypeDef = gql`
-    type ProjectList {
-        projects: [Project]
-    }
+const projectListTypeDef = gql`    
 
     
 
     type Query {
-        projects: ProjectList
+        projectList: [Project]
     }
 `;
 
