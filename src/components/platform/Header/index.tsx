@@ -38,6 +38,10 @@ const useStyles = makeStyles(theme => ({
     padding: '10px',
   },
   toolbar: {},
+  link: {
+    color: '#fff',
+    padding: '10px',
+  },
 }));
 
 interface RouteLink {
@@ -82,7 +86,7 @@ export default function Index() {
   }, [open, setOpen]);
 
   const desktopMenu = (
-    <Toolbar className={classes.toolbar}>
+    <>
       <Typography component="p" style={{ color: '#fff', padding: '10px' }} variant="h6">
         Anderson Day's Portfolio
       </Typography>
@@ -90,7 +94,7 @@ export default function Index() {
         <List style={{ display: 'flex' }}>{navLinks}</List>
         <List style={{ display: 'flex' }}>
           <ListItem>
-            <Link prefetch={false} href="https://github.com/dayander">
+            <Link href="https://github.com/dayander" prefetch={false}>
               <a>
                 <Icon
                   alt={'Anderson Days Github'}
@@ -100,7 +104,7 @@ export default function Index() {
             </Link>
           </ListItem>
           <ListItem>
-            <Link prefetch={false} href="https://www.linkedin.com/in/andersonday/">
+            <Link href="https://www.linkedin.com/in/andersonday/" prefetch={false}>
               <a>
                 <Icon alt={'Anderson Days Linkedin'} src={'/images/Linkedin.png'} />
               </a>
@@ -108,11 +112,11 @@ export default function Index() {
           </ListItem>
         </List>
       </nav>
-    </Toolbar>
+    </>
   );
 
   const mobileMenu = (
-    <Toolbar className={classes.toolbar}>
+    <>
       <IconButton
         aria-expanded={open}
         aria-label="menu"
@@ -126,12 +130,12 @@ export default function Index() {
       <Typography component="p" style={{ color: '#fff' }} variant="subtitle1">
         Anderson Day's Portfolio
       </Typography>
-      <Drawer classes={{ paper: classes.paper }} onClose={handleMenuToggle} open={open}>
+      <Drawer className={classes.drawerMobile} onClose={handleMenuToggle} open={open}>
         <nav>
-          <List className={classes.drawerMobile}>
+          <List>
             {navLinks}
             <ListItem>
-              <Link prefetch={false} href="https://github.com/dayander">
+              <Link href="https://github.com/dayander" prefetch={false}>
                 <a>
                   <Icon
                     alt={'Anderson Days Github'}
@@ -141,7 +145,7 @@ export default function Index() {
               </Link>
             </ListItem>
             <ListItem>
-              <Link prefetch={false} href="https://www.linkedin.com/in/andersonday/">
+              <Link href="https://www.linkedin.com/in/andersonday/" prefetch={false}>
                 <a>
                   <Icon alt={'Anderson Days Linkedin'} src={'/images/Linkedin.png'} />
                 </a>
@@ -150,12 +154,12 @@ export default function Index() {
           </List>
         </nav>
       </Drawer>
-    </Toolbar>
+    </>
   );
 
   return (
     <AppBar className={classes.appBar} position="static">
-      {matches ? desktopMenu : mobileMenu}
+      <Toolbar className={classes.toolbar}>{matches ? desktopMenu : mobileMenu}</Toolbar>
     </AppBar>
   );
 }

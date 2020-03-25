@@ -5,6 +5,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ApolloClient, NormalizedCacheObject } from 'apollo-boost';
 import withApollo from '../../hooks/graphQL/withApollo';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 export interface Theme {
   niceBlack: string;
@@ -31,13 +32,7 @@ interface Props {
 }
 
 class MyApp extends App<Props> {
-  componentDidMount() {
-    // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles?.parentElement?.removeChild(jssStyles);
-    }
-  }
+  componentDidMount() {}
 
   render() {
     const { Component, pageProps, apollo } = this.props;
@@ -50,7 +45,7 @@ class MyApp extends App<Props> {
         </Head>
         <ApolloProvider client={apollo}>
           <ThemeProvider theme={theme}>
-            <GlobalStyle />
+            <CssBaseline />
             <Component {...pageProps} />
           </ThemeProvider>
         </ApolloProvider>
