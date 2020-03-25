@@ -36,7 +36,13 @@ export default class MyDocument extends Document<any> {
   render() {
     return (
       <Html>
-        <Head>{this.props.styleTags /*rendering the actual stylesheet*/}</Head>
+        <Head>
+          {this.props.styleTags /*rendering the actual stylesheet*/}
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

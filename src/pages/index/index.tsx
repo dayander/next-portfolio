@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
+import { BasePage } from '../../components/platform/BasePage';
 
 const Query = gql`
   query {
@@ -12,14 +13,12 @@ const Query = gql`
 `;
 
 const Home = () => {
-  console.log(useQuery(Query).data);
   return (
-    <div className="container">
+    <BasePage>
       <Head>
         <title>Create Next App</title>
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <header>hey</header>
       <p>
         kjsfjnsdfj hksdjkhdsjkfsdjkhsdf hjksdhjkashjkdfkhjsadhj ksfdjkhfdsjhksdfhjkfds
         hjkasd;asdjkasdjaslk jdjkasdlkalksd jasljkdalskdjkasljdk
@@ -28,10 +27,9 @@ const Home = () => {
         kjsfjnsdfj hksdjkhdsjkfsdjkhsdf hjksdhjkashjkdfkhjsadhj ksfdjkhfdsjhksdfhjkfds
         hjkasd;asdjkasdjaslk jdjkasdlkalksd jasljkdalskdjkasljdk
       </p>
-      <main>main</main>
 
       <footer>footer</footer>
-    </div>
+    </BasePage>
   );
 };
 
