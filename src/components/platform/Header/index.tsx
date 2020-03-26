@@ -10,6 +10,7 @@ import Drawer from '@material-ui/core/Drawer';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import Link from 'next/link';
+import styled from 'styled-components';
 import Icon from '../../library/Icon';
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     padding: '10px',
-    backgroundColor: '#000 !important',
+    backgroundColor: theme.palette.primary.main,
   },
   alignLeft: {
     marginLeft: 'auto',
@@ -34,14 +35,11 @@ const useStyles = makeStyles(theme => ({
     minWidth: '200px',
   },
   paper: {
-    backgroundColor: '#000',
+    backgroundColor: theme.palette.background.default,
     padding: '10px',
   },
   toolbar: {},
-  link: {
-    color: '#fff',
-    padding: '10px',
-  },
+  linkStyle: {},
 }));
 
 interface RouteLink {
@@ -68,10 +66,16 @@ const routesObj: RouteLink[] = [
   },
 ];
 
+const NavAnchor = styled.a`
+  color: #fff;
+  padding: 10px;
+  font-size: 1.4em;
+`;
+
 const navLinks = routesObj.map((link: RouteLink, i: number) => (
   <ListItem key={i}>
-    <Link href={link.route}>
-      <a>{link.name}</a>
+    <Link href={link.route} passHref>
+      <NavAnchor>{link.name}</NavAnchor>
     </Link>
   </ListItem>
 ));
@@ -88,13 +92,14 @@ export default function Index() {
   const desktopMenu = (
     <>
       <Typography component="p" style={{ color: '#fff', padding: '10px' }} variant="h6">
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         Anderson Day's Portfolio
       </Typography>
       <nav className={classes.alignLeft} style={{ display: 'flex' }}>
         <List style={{ display: 'flex' }}>{navLinks}</List>
         <List style={{ display: 'flex' }}>
           <ListItem>
-            <Link href="https://github.com/dayander" prefetch={false}>
+            <Link href="https://github.com/dayander" passHref prefetch={false}>
               <a>
                 <Icon
                   alt={'Anderson Days Github'}
@@ -104,7 +109,7 @@ export default function Index() {
             </Link>
           </ListItem>
           <ListItem>
-            <Link href="https://www.linkedin.com/in/andersonday/" prefetch={false}>
+            <Link href="https://www.linkedin.com/in/andersonday/" passHref prefetch={false}>
               <a>
                 <Icon alt={'Anderson Days Linkedin'} src={'/images/Linkedin.png'} />
               </a>
@@ -128,14 +133,15 @@ export default function Index() {
         <MenuIcon />
       </IconButton>
       <Typography component="p" style={{ color: '#fff' }} variant="subtitle1">
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         Anderson Day's Portfolio
       </Typography>
       <Drawer className={classes.drawerMobile} onClose={handleMenuToggle} open={open}>
         <nav>
-          <List>
+          <List onClick={handleMenuToggle}>
             {navLinks}
             <ListItem>
-              <Link href="https://github.com/dayander" prefetch={false}>
+              <Link href="https://github.com/dayander" passHref prefetch={false}>
                 <a>
                   <Icon
                     alt={'Anderson Days Github'}
@@ -145,9 +151,9 @@ export default function Index() {
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="https://www.linkedin.com/in/andersonday/" prefetch={false}>
+              <Link href="https://www.linkedin.com/in/andersonday/" passHref prefetch={false}>
                 <a>
-                  <Icon alt={'Anderson Days Linkedin'} src={'/images/Linkedin.png'} />
+                  <Icon alt="Anderson Days Linkedin" src="/images/Linkedin.png" />
                 </a>
               </Link>
             </ListItem>
@@ -163,49 +169,3 @@ export default function Index() {
     </AppBar>
   );
 }
-
-// const color = {
-//   black: 'black',
-//   white: 'white',
-// };
-//
-// const HeaderTitle = styled.p`
-//   color: ${color.white};
-//   font-size: 1.25rem;
-//   font-weight: 500;
-//   line-height: 1.6;
-//   letter-spacing: 0.0075em;
-// `;
-//
-// const HeaderInner = styled.div`
-//     display: flex;
-//     position: relative;
-//     align-items: center;
-//     min-height: 64px;
-//     padding-left: 24px;
-//     padding-right: 24px;
-// `;
-//
-// const Header: React.FC = () => (
-//       <StyledHeader>
-//         <HeaderInner>
-//           <HeaderTitle>
-//             Anderson Day's Portfolio
-//           </HeaderTitle>
-//         </HeaderInner>
-//       </StyledHeader>
-//     );
-//
-// const StyledHeader = styled.header`
-//   position: static;
-//   width: 100%;
-//   display: flex;
-//   z-index: 1000;
-//   box-sizing: border-box;
-//   flex-direction: column;
-//   padding: 10px;
-//   background-color: ${color.black};
-// `;
-//
-//
-// export default Header;

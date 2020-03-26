@@ -337,7 +337,7 @@ module.exports = {
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
-        aspects: ['noHref', 'invalidHref'],
+        aspects: ['invalidHref'],
       },
     ],
     'jsx-a11y/no-autofocus': 'off',

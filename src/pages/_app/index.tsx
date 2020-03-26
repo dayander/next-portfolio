@@ -1,31 +1,12 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ApolloClient, NormalizedCacheObject } from 'apollo-boost';
-import withApollo from '../../hooks/graphQL/withApollo';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
-export interface Theme {
-  niceBlack: string;
-}
-
-export interface ThemeWrapper {
-  theme: Theme;
-}
-
-export const theme: Theme = {
-  niceBlack: '#001F3F',
-};
-
-const GlobalStyle = createGlobalStyle<ThemeWrapper>`
-  body {
-    margin: 0 auto;
-    color: ${props => props.theme.niceBlack};
-
-  }
-`;
+import { ThemeProvider } from '@material-ui/core/styles';
+import withApollo from '../../hooks/graphQL/withApollo';
+import theme from '../../theme';
 
 interface Props {
   apollo: ApolloClient<NormalizedCacheObject>;

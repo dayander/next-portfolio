@@ -12,7 +12,9 @@ const projectSchema = new Schema({
   outcome: String,
   tags: Array,
   headingImg: {imgPath:String, altText: String},
-  address: String
+  address: String,
+  getter: String,
+  bgImage: String,
 });
 
 export default model('Project', projectSchema);

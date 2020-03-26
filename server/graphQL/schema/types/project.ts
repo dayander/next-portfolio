@@ -15,6 +15,8 @@ export default gql`
         tags: [String],
         headingImg: Image
         address: String
+        getter:String
+        bgImage: String
     }
 
     type Image {
