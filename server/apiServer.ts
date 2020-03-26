@@ -1,6 +1,8 @@
 import express, {Request, Response} from 'express';
 import mongoose from 'mongoose';
 import server from './graphQL';
+import cors from 'cors';
+
 
 require('dotenv').config();
 
@@ -22,7 +24,7 @@ mongoose.connect(
   });
 
 export const db = mongoose.connection;
-
+//APIServer.use(cors);
 
 server.applyMiddleware({ app:APIServer });
 

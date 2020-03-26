@@ -10,21 +10,24 @@ const ProjectLink: React.FC<ProjectLinkProps> = ({
   getter,
   companyName,
   projectHeading,
-}) => (
-  <Link href={`/work${getter}}`} passHref>
-    <a>
-      <ProjectWrapper backgroundImage={bgImage}>
-        <ProjectContent>
-          <Typography component="h2" variant="h4">
-            {companyName}
-          </Typography>
-          <Typography component="p" variant="subtitle1">
-            {projectHeading}
-          </Typography>
-        </ProjectContent>
-      </ProjectWrapper>
-    </a>
-  </Link>
-);
+}) => {
+  console.log(bgImage, getter, companyName, projectHeading);
+  return (
+    <Link href={`/work${getter}`} passHref>
+      <a>
+        <ProjectWrapper ProjectWrapperBgImage={bgImage}>
+          <ProjectContent>
+            <Typography component="h2" variant="h4">
+              {companyName}
+            </Typography>
+            <Typography component="p" variant="subtitle1">
+              {projectHeading}
+            </Typography>
+          </ProjectContent>
+        </ProjectWrapper>
+      </a>
+    </Link>
+  );
+};
 
 export default ProjectLink;

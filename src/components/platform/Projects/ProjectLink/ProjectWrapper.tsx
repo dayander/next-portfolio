@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ProjectWrapperProps {
-  readonly backgroundImage: string;
+  ProjectWrapperBgImage?: string;
 }
 
 const ProjectWrapper = styled.div<ProjectWrapperProps>`
@@ -11,7 +11,7 @@ const ProjectWrapper = styled.div<ProjectWrapperProps>`
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: ${props => props.backgroundImage};
+  background-image: url(${props => props.ProjectWrapperBgImage});
 `;
 
 export default ProjectWrapper;

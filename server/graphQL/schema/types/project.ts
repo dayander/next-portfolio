@@ -30,7 +30,7 @@ export default gql`
     }
 
     type Query {
-        project(input: ProjectInput!): Project
+        project(input: ProjectInput): Project
     }
 `;
 

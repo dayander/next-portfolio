@@ -1,21 +1,12 @@
 import Head from 'next/head';
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import Typography from '@material-ui/core/Typography';
+import Link from 'next/link';
 import { BasePage } from '../../components/platform/BasePage';
 import PageHeader from '../../components/platform/PageHeader';
 import PullQuote from '../../components/library/PullQuote';
-import Link from 'next/link';
 import theme from '../../theme';
-
-const Query = gql`
-  query {
-    project {
-      projectName
-    }
-  }
-`;
+import ProjectSection from '../../components/platform/Projects/ProjectSection';
 
 const Home = () => (
   <BasePage>
@@ -41,14 +32,7 @@ const Home = () => (
         users creative and innovative software solutions.
       </Typography>
     </PullQuote>
-    <p>
-      kjsfjnsdfj hksdjkhdsjkfsdjkhsdf hjksdhjkashjkdfkhjsadhj ksfdjkhfdsjhksdfhjkfds
-      hjkasd;asdjkasdjaslk jdjkasdlkalksd jasljkdalskdjkasljdk
-    </p>
-    <p>
-      kjsfjnsdfj hksdjkhdsjkfsdjkhsdf hjksdhjkashjkdfkhjsadhj ksfdjkhfdsjhksdfhjkfds
-      hjkasd;asdjkasdjaslk jdjkasdlkalksd jasljkdalskdjkasljdk
-    </p>
+    <ProjectSection />
 
     <footer>footer</footer>
   </BasePage>
