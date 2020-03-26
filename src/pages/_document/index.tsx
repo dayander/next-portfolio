@@ -1,7 +1,6 @@
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
-import theme from '../../theme';
 
 export default class MyDocument extends Document {
   render() {
@@ -9,6 +8,18 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           {/* PWA primary color */}
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+          <meta
+            content="Anderson Day's accessibility and software development portfolio."
+            name="description"
+          />
+
+          <meta
+            content="Anderson Day, Portfolio, Accessibility, a11y, frontend,
+        Anderson, Michigan State, engineer, developer, software"
+            name="keywords"
+          />
 
           <link
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

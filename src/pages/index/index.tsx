@@ -11,7 +11,7 @@ import Linked from '../../components/util/Linked';
 const Home = () => (
   <BasePage>
     <Head>
-      <title>Create Next App</title>
+      <title>Home page - Anderson Day's Accessibility and Software Development Portfolio.</title>
       <link href="/favicon.ico" rel="icon" />
     </Head>
     <PageHeader
