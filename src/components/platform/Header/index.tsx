@@ -12,6 +12,8 @@ import List from '@material-ui/core/List';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Icon from '../../library/Icon';
+import Linked from '../../util/Linked';
+import theme from '../../../theme';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -66,19 +68,34 @@ const routesObj: RouteLink[] = [
   },
 ];
 
-const NavAnchor = styled.a`
-  color: #fff;
-  padding: 10px;
-  font-size: 1.4em;
-`;
+const NavAnchorStyles = {
+  color: theme.palette.common.white,
+  padding: '10px',
+  fontSize: '1.4em',
+};
 
 const navLinks = routesObj.map((link: RouteLink, i: number) => (
   <ListItem key={i}>
-    <Link href={link.route} passHref>
-      <NavAnchor>{link.name}</NavAnchor>
-    </Link>
+    <Linked href={link.route} styles={NavAnchorStyles}>
+      {link.name}
+    </Linked>
   </ListItem>
 ));
+
+const navIconLinks = (
+  <>
+    <ListItem>
+      <Linked href="https://github.com/dayander">
+        <Icon alt={'Anderson Days Github'} src={'/images/GitHub-Mark-Light-120px-plus.png'} />
+      </Linked>
+    </ListItem>
+    <ListItem>
+      <Linked href="https://www.linkedin.com/in/andersonday/">
+        <Icon alt="Anderson Days Linkedin" src="/images/Linkedin.png" />
+      </Linked>
+    </ListItem>
+  </>
+);
 
 export default function Index() {
   const classes = useStyles();
@@ -96,25 +113,9 @@ export default function Index() {
         Anderson Day's Portfolio
       </Typography>
       <nav className={classes.alignLeft} style={{ display: 'flex' }}>
-        <List style={{ display: 'flex' }}>{navLinks}</List>
         <List style={{ display: 'flex' }}>
-          <ListItem>
-            <Link href="https://github.com/dayander" passHref prefetch={false}>
-              <a>
-                <Icon
-                  alt={'Anderson Days Github'}
-                  src={'/images/GitHub-Mark-Light-120px-plus.png'}
-                />
-              </a>
-            </Link>
-          </ListItem>
-          <ListItem>
-            <Link href="https://www.linkedin.com/in/andersonday/" passHref prefetch={false}>
-              <a>
-                <Icon alt={'Anderson Days Linkedin'} src={'/images/Linkedin.png'} />
-              </a>
-            </Link>
-          </ListItem>
+          {navLinks}
+          {navIconLinks}
         </List>
       </nav>
     </>
@@ -140,23 +141,7 @@ export default function Index() {
         <nav>
           <List onClick={handleMenuToggle}>
             {navLinks}
-            <ListItem>
-              <Link href="https://github.com/dayander" passHref prefetch={false}>
-                <a>
-                  <Icon
-                    alt={'Anderson Days Github'}
-                    src={'/images/GitHub-Mark-Light-120px-plus.png'}
-                  />
-                </a>
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link href="https://www.linkedin.com/in/andersonday/" passHref prefetch={false}>
-                <a>
-                  <Icon alt="Anderson Days Linkedin" src="/images/Linkedin.png" />
-                </a>
-              </Link>
-            </ListItem>
+            {navIconLinks}
           </List>
         </nav>
       </Drawer>

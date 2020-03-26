@@ -27,7 +27,6 @@
     "node-fetch": "^2.6.0",
     "react": "16.13.0",
     "react-dom": "16.13.0",
-    "react-loader-advanced": "^1.7.1",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
