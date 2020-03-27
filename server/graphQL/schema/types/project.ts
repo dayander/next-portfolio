@@ -17,6 +17,11 @@ export default gql`
         address: String
         getter:String
         bgImage: String
+        challenge01: Image
+        challenge02:Image
+        process02: Image
+        process01: Image
+        outcome01: Image
     }
 
     type Image {
@@ -27,6 +32,7 @@ export default gql`
     input ProjectInput {
         projectName: String
         address: String
+        getter: String
     }
 
     type Query {
