@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    endpoint: process.env.PORT ?? 3000,
+    endpoint: process.env.PORT || 3000,
   },
 };
 
