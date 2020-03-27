@@ -1,9 +1,8 @@
-// @ts-ignore
-const next = require('next');
-
-const express = require('express');
-
-const httpProxy = require('http-proxy');
+import compression from 'compression';
+import next from 'next';
+import express, {Request, Response} from 'express';
+import httpProxy from 'http-proxy';
+import debug from 'debug';
 
 
 const PORT = process.env.PORT ?? 3000;
@@ -21,6 +20,7 @@ const apiProxy = httpProxy.createProxyServer({
 
 clientApp.prepare().then(() => {
   const server = express();
+  server.use(compression());
 
   server.use('/api', (req: Request, res: Response) => {
     apiProxy.web(req, res);
@@ -29,9 +29,9 @@ clientApp.prepare().then(() => {
   server.all('*', (req: Request, res: Response) => handleRender(req, res));
 
   server.listen(PORT, () => {
-    // eslint-disable-next-line no-console
-    console.log(`> 🚀 Ready on http://localhost:${PORT}`);
+
+    debug(`> 🚀 Ready on http://localhost:${PORT}`);
   });
 });
-//@ts-ignore
+
 export {};
