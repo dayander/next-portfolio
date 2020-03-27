@@ -15,6 +15,11 @@ const projectSchema = new Schema({
   address: String,
   getter: String,
   bgImage: String,
+  challenge01: {imgPath:String, altText: String},
+  challenge02: {imgPath:String, altText: String},
+  process01: {imgPath:String, altText: String},
+  process02: {imgPath:String, altText: String},
+  outcome01: {imgPath:String, altText: String},
 });
 
 export default model('Project', projectSchema);
