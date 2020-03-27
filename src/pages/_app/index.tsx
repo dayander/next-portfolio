@@ -21,7 +21,7 @@ class MyApp extends App<Props> {
     return (
       <React.Fragment>
         <Head>
-          <title>GraphQL Job Board</title>
+          <title>Anderson Day's Accessibility and Software Development Portfolio.</title>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
         <ApolloProvider client={apollo}>
