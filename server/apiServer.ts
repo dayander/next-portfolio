@@ -2,7 +2,6 @@ import express, {Request, Response} from 'express';
 import mongoose from 'mongoose';
 import {config} from 'dotenv';
 import compression from 'compression';
-import debug from 'debug';
 import server from './graphQL';
 
 config();
@@ -15,12 +14,12 @@ mongoose.connect(
   dbURI ?? '',
   { useNewUrlParser: true })
   .then(() => {
-
-  debug('> ⚾️ Connected to Database');
+  // eslint-disable-next-line no-console
+  console.log('> ⚾️ Connected to Database');
 })
   .catch((error: Error) => {
-
-    debug(error.message);
+    // eslint-disable-next-line no-console
+    console.log(error);
   });
 
 export const db = mongoose.connection;
@@ -29,5 +28,5 @@ APIServer.use(compression());
 server.applyMiddleware({ app:APIServer });
 
 APIServer.get('/', (req: Request, res: Response) => res.send('api server working'));
-
-APIServer.listen(API_PORT,  () => debug(`> 🍄 API Sever listening on port ${API_PORT}${server.graphqlPath}!`));
+// eslint-disable-next-line no-console
+APIServer.listen(API_PORT,  () => console.log(`> 🍄 API Sever listening on port ${API_PORT}${server.graphqlPath}!`));
