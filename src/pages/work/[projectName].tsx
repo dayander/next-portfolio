@@ -6,12 +6,13 @@ import PageHeader from '../../components/platform/PageHeader';
 import SingleProjectQuery from '../../queries/SingleProjectQuery';
 import PullSection from '../../components/library/PullSection';
 import DoublePicture from '../../components/library/DoublePicture';
+import LargePicture from '../../components/library/LargePicture';
 
 const ProjectTemplate: React.FC = () => {
   const {query} = useRouter();
   const { data } = useQuery(SingleProjectQuery, {variables:{getter: `/${query.projectName}`}});
   const project = data?.project;
-  console.log(data)
+
   return(
     <BasePage>
       <PageHeader h1={project?.companyName} h2={project?.projectHeading} image={project?.bgImage} />
@@ -24,7 +25,7 @@ const ProjectTemplate: React.FC = () => {
       <PullSection body={project?.approach} header={project?.approachHeading}/>
       <DoublePicture image1={project?.process01} image2={project?.process02}/>
       <PullSection body={project?.outcome} header={project?.outcomeHeading}/>
-      {/*<LargePicture imgPath={project.outcome01.imgPath} altText={project.outcome01.altText}/>*/}
+      <LargePicture altText={project?.outcome01?.altText} imgPath={project?.outcome01?.imgPath}/>
 
     </BasePage>
   );
