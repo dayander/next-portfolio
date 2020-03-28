@@ -4,8 +4,8 @@ const ResumeJobEntry = {
   companyName: String,
   jobTitle: String,
   location: String,
-  startDate: Date,
-  endDate: Date,
+  startDate: String,
+  endDate: String,
   bullets: [String],
   order: Number,
 };
@@ -24,7 +24,8 @@ const resumeSchema = new Schema({
   jobEntries: [ResumeJobEntry],
   education: EducationEntry,
   skills: [String],
-  relevantProjects: [RelevantProjectEntry],
+  relevantProjects: [String],
+  pathToFile: String,
 });
 
 export default model('Resume', resumeSchema);

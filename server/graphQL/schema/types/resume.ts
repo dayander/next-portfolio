@@ -1,27 +1,36 @@
-import {gql} from 'apollo-server-express';
-
-
+import { gql } from 'apollo-server-express';
 
 const resumeTypeDef = gql`
-    scalar Date
+  scalar Date
 
-    type ResumeJobEntry {
-        companyName: String!
-        jobTitle: String!
-        location: String!
-        startDate: Date!
-        endDate: Date!
-        bullets: [String]!
-    }
+  type ResumeJobEntry {
+    companyName: String!
+    jobTitle: String!
+    location: String!
+    startDate: String!
+    endDate: String
+    bullets: [String]
+  }
 
+  type EducationEntry {
+    school: String!
+    degree: String!
+  }
 
+  type Resume {
+    jobEntries: [ResumeJobEntry]!
+    education: EducationEntry!
+    relevantProjects: [String]!
+    skills: [String]!
+    pathToFile: String!
+  }
 
-    type Query {
-        ResumeJobEntry: ResumeJobEntry
-    }
-    type Query {
-        ResumeJobEntryList: [ResumeJobEntry]
-    }
+  type Query {
+    resume: Resume
+  }
+  type Query {
+    ResumeJobEntryList: [ResumeJobEntry]
+  }
 `;
 
 export default resumeTypeDef;

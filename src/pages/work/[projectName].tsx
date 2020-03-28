@@ -7,6 +7,8 @@ import SingleProjectQuery from '../../queries/SingleProjectQuery';
 import PullSection from '../../components/library/PullSection';
 import DoublePicture from '../../components/library/DoublePicture';
 import LargePicture from '../../components/library/LargePicture';
+import DocumentTitle from '../../components/util/DocumentTitle';
+
 
 const ProjectTemplate: React.FC = () => {
   const {query} = useRouter();
@@ -15,6 +17,7 @@ const ProjectTemplate: React.FC = () => {
 
   return(
     <BasePage>
+      <DocumentTitle titleString={project?.companyName} />
       <PageHeader h1={project?.companyName} h2={project?.projectHeading} image={project?.bgImage} />
       <PullSection
         body={project?.challenge}

@@ -1,5 +1,7 @@
 export default {
   Query: {
-    ResumeJobEntryList: (__: any, ___: any, ctx: any) => ctx.models.Resume.find(),
+    resume: (__: any, ___: any, ctx: any) => {
+      return ctx.models.Resume.findOne({ _id: '5e7fc49ed6ab9fbde0f88446' });
+    },
   },
 };

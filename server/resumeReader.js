@@ -6,16 +6,26 @@ const reader = new PdfReader();
 
 let rows = {}; // indexed by y-position
 
+let stringToAdd = '';
+
+const firstLine = new RegExp('.*Experience');
+
 reader.parseFileItems(
   path.join(__dirname, '../public/andersonDayResume09232019.pdf'),
   (error, data) => {
     if (error) throw error;
     else if (!data) console.log('No item');
-    else if (data.text) {
-      (rows[data.y] = rows[data.y] || []).push(data.text);
-      console.log(data.text);
-      console.log(rows);
+    if (data && data.text) {
+      stringToAdd += data.text;
     }
+
+    //console.log(data.text)
+    // else if (data.text) {
+    //   (rows[data.y] = rows[data.y] || []).push(data.text);
+    //   data.
+    //   console.log(data.text);
+    //   console.log(rows);
+    // }
   }
 );
 //
@@ -24,7 +34,9 @@ reader.parseFileItems(
 //   console.log(data);
 // })
 //
+console.log(stringToAdd);
 
+console.log(firstLine[Symbol.match](stringToAdd));
 //
 // const readFile = util.promisify(fs.readFile);
 //
