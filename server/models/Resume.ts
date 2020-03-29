@@ -15,11 +15,6 @@ const EducationEntry = {
   degree: String,
 };
 
-const RelevantProjectEntry = {
-  projectDescription: String,
-  date: String,
-};
-
 const resumeSchema = new Schema({
   jobEntries: [ResumeJobEntry],
   education: EducationEntry,
