@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 
 const ConferenceTemplate: React.FC = () => {
   const { query } = useRouter()
-  console.log(query)
   return(
     <BasePage>
       <PageHeader h1={'conference'} />

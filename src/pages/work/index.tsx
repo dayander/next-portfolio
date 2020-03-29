@@ -4,6 +4,7 @@ import { BasePage } from '../../components/platform/BasePage';
 import PageHeader from '../../components/platform/PageHeader';
 import ProjectList from '../../components/platform/Projects/ProjectsList';
 import Jumbotron from '../../components/library/Jumbotron';
+import withApollov2 from '../../hooks/withApollov2';
 
 const WorkPage: React.FC = () => (
   <BasePage>
@@ -21,4 +22,4 @@ const WorkPage: React.FC = () => (
   </BasePage>
 );
 
-export default WorkPage;
+export default withApollov2(WorkPage);

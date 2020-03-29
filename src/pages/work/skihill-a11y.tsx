@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { BasePage } from '../../components/platform/BasePage';
 import PageHeader from '../../components/platform/PageHeader';
 import SingleProjectQuery from '../../queries/SingleProjectQuery';
+import withApollov2 from '../../hooks/withApollov2';
 
 const SkiHillA11yPage: React.FC = () => {
   const { query } = useRouter();
@@ -17,4 +18,4 @@ const SkiHillA11yPage: React.FC = () => {
   );
 };
 
-export default SkiHillA11yPage;
+export default withApollov2(SkiHillA11yPage);

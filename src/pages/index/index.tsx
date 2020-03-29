@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { BasePage } from '../../components/platform/BasePage';
@@ -7,13 +6,12 @@ import PullQuote from '../../components/library/PullQuote';
 import theme from '../../theme';
 import ProjectSection from '../../components/platform/Projects/ProjectSection';
 import Linked from '../../components/util/Linked';
+import DocumentTitle from '../../components/util/DocumentTitle';
+import withApollov2 from '../../hooks/withApollov2';
 
 const Home = () => (
   <BasePage>
-    <Head>
-      <title>Home page - Anderson Day's Accessibility and Software Development Portfolio.</title>
-      <link href="/favicon.ico" rel="icon" />
-    </Head>
+    <DocumentTitle titleString={'Home'} />
     <PageHeader
       h1="Anderson Day's Portfolio"
       h2="Software Development and Accessibility"
@@ -33,9 +31,7 @@ const Home = () => (
       </Typography>
     </PullQuote>
     <ProjectSection />
-
-    <footer>footer</footer>
   </BasePage>
 );
 
-export default Home;
+export default withApollov2(Home);

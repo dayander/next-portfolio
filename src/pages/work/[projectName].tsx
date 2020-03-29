@@ -8,7 +8,7 @@ import PullSection from '../../components/library/PullSection';
 import DoublePicture from '../../components/library/DoublePicture';
 import LargePicture from '../../components/library/LargePicture';
 import DocumentTitle from '../../components/util/DocumentTitle';
-
+import withApollov2 from '../../hooks/withApollov2';
 
 const ProjectTemplate: React.FC = () => {
   const {query} = useRouter();
@@ -34,5 +34,4 @@ const ProjectTemplate: React.FC = () => {
   );
 };
 
-
-export default ProjectTemplate;
+export default withApollov2(ProjectTemplate);

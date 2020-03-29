@@ -6,12 +6,13 @@ import DocumentTitle from '../../components/util/DocumentTitle';
 import Jumbotron from '../../components/library/Jumbotron';
 import Container from '../../components/library/Container';
 import Panel from '../../components/library/Panel';
+import withApollov2 from '../../hooks/withApollov2';
 
 const ContactPage: React.FC = () => {
   return (
     <BasePage>
       <DocumentTitle titleString={'Contact'} />
-      <PageHeader h1={'Contact Anderson Day'} h2={'Lets get in touch!'} />
+      <PageHeader colorProp={'black'} h1={'Contact Anderson Day'} h2={'Lets get in touch!'} />
       <Jumbotron>
         <Container>
           <Panel>
@@ -23,4 +24,4 @@ const ContactPage: React.FC = () => {
   );
 };
 
-export default ContactPage;
+export default withApollov2(ContactPage);
