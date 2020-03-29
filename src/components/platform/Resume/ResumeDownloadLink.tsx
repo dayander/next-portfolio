@@ -5,7 +5,7 @@ interface ResumeDownloadLinkProps {
 }
 
 const ResumeDownloadLink: React.FC<ResumeDownloadLinkProps> = ({ pathToResume }) => (
-  <a download href={pathToResume}>
+  <a download href={pathToResume ? pathToResume : ''}>
     Download Resume
   </a>
 );

@@ -27,7 +27,7 @@ interface PageHeaderProps {
   colorProp?: string;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ h1, h2, image, colorProp }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ h1, h2, image = '', colorProp }) => {
   const classes = useStyles();
   return (
     <div className={classes.header} style={{ backgroundImage: `url(${image})` }}>

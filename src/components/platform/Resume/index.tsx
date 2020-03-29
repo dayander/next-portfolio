@@ -10,10 +10,10 @@ import ResumeQuery from '../../../queries/ResumeQuery';
 const Resume: React.FC = () => {
   const { data } = useQuery(ResumeQuery);
   const resumeData = data?.resume;
-  console.log(data);
+
   return (
     <React.Fragment>
-      <ResumeDownloadLink pathToResume={resumeData?.pathToFile} />
+      <ResumeDownloadLink pathToResume={resumeData?.pathToFile ?? ''} />
       <ResumeExperience experienceList={resumeData?.jobEntries} />
       <ResumeEducation
         degree={resumeData?.education?.degree}

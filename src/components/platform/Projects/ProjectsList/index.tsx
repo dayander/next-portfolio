@@ -16,7 +16,7 @@ const ProjectList: React.FC = () => {
   const projects = data?.projectList;
 
   const projectList = projects?.map((project: any, i: number) => (
-    <li key={i}>
+    <li key={i} style={{ listStyleType: 'none' }}>
       <ProjectLink {...project} />
     </li>
   ));
