@@ -1,22 +1,15 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import { ApolloProvider } from '@apollo/react-hooks';
-import { ApolloClient, NormalizedCacheObject } from 'apollo-boost';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
-import withApollo from '../../hooks/graphQL/withApollo';
 import theme from '../../theme';
 
-interface Props {
-  apollo: ApolloClient<NormalizedCacheObject>;
-}
-
-class MyApp extends App<Props> {
+class MyApp extends App {
   componentDidMount() {}
 
   render() {
-    const { Component, pageProps, apollo } = this.props;
+    const { Component, pageProps } = this.props;
 
     return (
       <React.Fragment>
@@ -24,15 +17,13 @@ class MyApp extends App<Props> {
           <title>Anderson Day's Accessibility and Software Development Portfolio.</title>
           <meta content="width=device-width, initial-scale=1" name="viewport" />
         </Head>
-        <ApolloProvider client={apollo}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </ApolloProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
       </React.Fragment>
     );
   }
 }
 
-export default withApollo(MyApp);
+export default MyApp;
