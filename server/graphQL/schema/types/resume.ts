@@ -23,6 +23,7 @@ const resumeTypeDef = gql`
     relevantProjects: [String]!
     skills: [String]!
     pathToFile: String!
+    _id: ID
   }
 
   type Query {

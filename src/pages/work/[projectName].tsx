@@ -9,6 +9,7 @@ import DoublePicture from '../../components/library/DoublePicture';
 import LargePicture from '../../components/library/LargePicture';
 import DocumentTitle from '../../components/util/DocumentTitle';
 import withApollov2 from '../../hooks/withApollov2';
+import Onward from '../../components/library/Onward';
 
 const ProjectTemplate: React.FC = () => {
   const {query} = useRouter();
@@ -29,6 +30,7 @@ const ProjectTemplate: React.FC = () => {
       <DoublePicture image1={project?.process01} image2={project?.process02}/>
       <PullSection body={project?.outcome} header={project?.outcomeHeading}/>
       <LargePicture altText={project?.outcome01?.altText} imgPath={project?.outcome01?.imgPath}/>
+      <Onward/>
 
     </BasePage>
   );

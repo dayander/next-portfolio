@@ -9,8 +9,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Drawer from '@material-ui/core/Drawer';
 import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
-import Link from 'next/link';
-import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 import Icon from '../../library/Icon';
 import Linked from '../../util/Linked';
 import theme from '../../../theme';
@@ -34,7 +33,14 @@ const useStyles = makeStyles(theme => ({
     maxHeight: '26px',
   },
   drawerMobile: {
-    minWidth: '200px',
+    minWidth: '400px',
+  },
+  drawer: {
+    paper: {
+      root: {
+        backgroundColor: theme.palette.primary.main,
+      },
+    },
   },
   paper: {
     backgroundColor: theme.palette.background.default,
@@ -137,8 +143,9 @@ export default function Index() {
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         Anderson Day's Portfolio
       </Typography>
-      <Drawer className={classes.drawerMobile} onClose={handleMenuToggle} open={open}>
-        <nav>
+      <Drawer className={classes.drawer} onClose={handleMenuToggle} open={open}>
+        <Button onClick={handleMenuToggle}>Close</Button>
+        <nav style={{ minWidth: '250px', backgroundColor: 'black' }}>
           <List onClick={handleMenuToggle}>
             {navLinks}
             {navIconLinks}

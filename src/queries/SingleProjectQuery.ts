@@ -39,6 +39,8 @@ const SingleProjectQuery = gql`
         imgPath
         altText
       }
+      largeImage
+      _id
     }
   }
 `;

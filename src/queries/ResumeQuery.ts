@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 const ResumeQuery = gql`
   query ResumeQuery {
     resume {
+      _id
       jobEntries {
         companyName
         jobTitle
