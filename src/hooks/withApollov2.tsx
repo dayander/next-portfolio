@@ -6,6 +6,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import fetch from 'isomorphic-unfetch';
+import { setContext } from 'apollo-link-context';
 
 type TApolloClient = ApolloClient<NormalizedCacheObject>;
 
@@ -130,6 +131,7 @@ function initApolloClient(initialState?: any) {
 const link = createHttpLink({
   fetch, // Switches between unfetch & node-fetch for client & server.
   uri: `http://localhost:${process.env.endpoint ?? 3000}/api/graphql`,
+  credentials: 'same-origin',
 });
 
 /**
@@ -140,9 +142,21 @@ function createApolloClient(initialState = {}) {
   const ssrMode = typeof window === 'undefined';
   const cache = new InMemoryCache().restore(initialState);
 
+  const authLink = setContext((_, { headers }) => {
+    // get the authentication token from local storage if it exists
+    const token = localStorage.getItem('token');
+    // return the headers to the context so httpLink can read them
+    return {
+      headers: {
+        ...headers,
+        authorization: token ? token : '',
+      },
+    };
+  });
+
   return new ApolloClient({
     ssrMode,
-    link,
+    link: authLink.concat(link),
     cache,
   });
 }

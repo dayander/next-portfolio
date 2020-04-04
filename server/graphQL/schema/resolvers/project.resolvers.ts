@@ -1,3 +1,5 @@
+import { authenticated } from '../../../auth';
+
 interface ProjectInput {
   input: {
     projectName?: string;
@@ -8,7 +10,7 @@ interface ProjectInput {
 
 export default {
   Query: {
-    project: (_: any, { input }: ProjectInput, ctx: any) => {
+    project: authenticated((_: any, { input }: ProjectInput, ctx: any) => {
       if (input.address) {
         return ctx.models.Project.findOne({ address: input.address });
       }
@@ -17,6 +19,6 @@ export default {
       }
 
       return ctx.models.Project.findOne({ projectName: input.projectName });
-    },
+    }),
   },
 };
