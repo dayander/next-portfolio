@@ -37,7 +37,7 @@
     "http-proxy-middleware": "^1.0.3",
     "isomorphic-unfetch": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
-    "next": "9.2.2",
+    "next": "9.3.2",
     "next-with-apollo": "^5.0.0",
     "passport": "^0.4.1",
     "pdfreader": "^1.0.6",
