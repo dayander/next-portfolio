@@ -29,7 +29,7 @@ userSchema.pre('save', function(next) {
 });
 
 //comparePassword
-userSchema.methods.comparePassword = (candidatePassword: string, callback: any) => {
+userSchema.methods.comparePassword = function(candidatePassword: string, callback: any) {
   // @ts-ignore
   bcrypt.compare(candidatePassword, this.password, (compareError: Error, isMatch: boolean) => {
     if (compareError) {

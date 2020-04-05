@@ -8,10 +8,9 @@ export const createToken = (id: string, email: string) => jwt.sign({ id, email }
 export const getUserFromToken = (token: string) => {
   try {
     const user = jwt.verify(token, secret);
-    console.log(user);
+
     return models.User.findOne({ id: user });
   } catch (error) {
-    console.log(error);
     return null;
   }
 };

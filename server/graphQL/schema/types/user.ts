@@ -20,7 +20,7 @@ const userTypeDef = gql`
 
   type AuthUser {
     token: String!
-    user: User!
+    user: User
   }
 
   type Mutation {
