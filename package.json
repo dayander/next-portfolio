@@ -33,7 +33,7 @@
     "graphql": "^14.6.0",
     "graphql-passport": "^0.6.3",
     "graphql-tag": "^2.10.3",
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "http-proxy-middleware": "^1.0.3",
     "isomorphic-unfetch": "^3.0.0",
     "jsonwebtoken": "^8.5.1",
